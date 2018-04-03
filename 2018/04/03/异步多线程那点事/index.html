@@ -16,14 +16,15 @@
 <meta property="og:site_name" content="LuTHEr网络博客">
 <meta property="og:description" content="异步多线程科学起源​ 服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 ​ 需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://github-lu.github.io/2018/04/03/img/timg.jpg">
 <meta property="og:image" content="https://github-lu.github.io/2018/04/03/img/Task.png">
 <meta property="og:image" content="https://github-lu.github.io/2018/04/03/img/Sync.png">
 <meta property="og:image" content="https://github-lu.github.io/2018/04/03/img/Async-await.png">
-<meta property="og:updated_time" content="2018-04-03T15:35:02.432Z">
+<meta property="og:updated_time" content="2018-04-03T15:37:42.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步多线程那点事">
 <meta name="twitter:description" content="异步多线程科学起源​ 服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 ​ 需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让">
-<meta name="twitter:image" content="https://github-lu.github.io/2018/04/03/img/Task.png">
+<meta name="twitter:image" content="https://github-lu.github.io/2018/04/03/img/timg.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
   
@@ -204,7 +205,7 @@
 <p>线程还会占用内存。线程的内核对象占几M到几时M。普通的计算机上千个线程就会耗尽内存。</p>
 <p>线程切换也会消耗时间，最终导致服务器性能急剧下降。如果客户端并发请求量很高，同一时刻有很多客户端等待服务器响应的情况下，将会有过多的线程并发执行，频繁的线程切换将用掉一部分计算能力。</p>
 <p>对于一个需要应付同时有大量客户端并发请求的网络服务器来说，线程池是唯一的解决方案。线程池不光能够避免频繁地创建线程和销毁线程，而且能够用数目很少的线程就可以处理大量客户端并发请求。</p>
-<p><img src="" alt="../img/timg.jpg"></p>
+<p><img src="../img/timg.jpg" alt=""></p>
 <h3 id="关于网页加载的时长的Mark"><a href="#关于网页加载的时长的Mark" class="headerlink" title="关于网页加载的时长的Mark"></a>关于网页加载的时长的Mark</h3><p>​        据统计，用户留在加载页面的时间和用户对于该软件的了解程度成正比。一般一个陌生的产品加载时间超过5s用户就会离开页面，当然软件功能足够吸引人的话用户会再进入页面2~3次，而对于不紧急的用户熟悉的产品，用户能够给予的加载时间会稍微长些。一些大的电商网站会由于网页1秒中的等待时长年损失以亿计算。。。</p>
 <h3 id="自己理解"><a href="#自己理解" class="headerlink" title="自己理解"></a>自己理解</h3><ul>
 <li>什么是同步？</li>
@@ -500,15 +501,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
