@@ -170,6 +170,155 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-异步多线程那点事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/03/异步多线程那点事/">异步多线程那点事</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/03/异步多线程那点事/" class="archive-article-date">
+  	<time datetime="2018-04-03T12:07:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="异步多线程科学起源"><a href="#异步多线程科学起源" class="headerlink" title="异步多线程科学起源"></a>异步多线程科学起源</h3><blockquote>
+<p>服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。</p>
+<p>需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或多个IO设备与CPU并发执行。</p>
+<p>另一方面，CPU密集的计算是我们无法控制的。如果是CPU计算出现了瓶颈，那只能给服务器增加CPU，或者增加服务器。而IO操作，实际上是空等别的硬件，这里面的优化就大有可为。</p>
+</blockquote>
+<h3 id="多线程虽好可不要贪杯哦"><a href="#多线程虽好可不要贪杯哦" class="headerlink" title="多线程虽好可不要贪杯哦"></a>多线程虽好可不要贪杯哦</h3><blockquote>
+<p>首先，创建线程/进程和销毁线程/进程的代价非常高昂，尤其是在服务器采用TCP“短连接”方式或UDP方式通讯的情况下，例如，HTTP协议中，客户端发起一个连接后，发送一个请求，服务器回应了这个请求后，连接也就被关闭了。如果采用经典方式设计HTTP服务器，那么过于频繁地创建线程/销毁线程对性能造成的影响是很恶劣的。</p>
+<p>线程还会占用内存。线程的内核对象占几M到几时M。普通的计算机上千个线程就会耗尽内存。</p>
+<p>线程切换也会消耗时间，最终导致服务器性能急剧下降。如果客户端并发请求量很高，同一时刻有很多客户端等待服务器响应的情况下，将会有过多的线程并发执行，频繁的线程切换将用掉一部分计算能力。</p>
+<p>对于一个需要应付同时有大量客户端并发请求的网络服务器来说，线程池是唯一的解决方案。线程池不光能够避免频繁地创建线程和销毁线程，而且能够用数目很少的线程就可以处理大量客户端并发请求。</p>
+</blockquote>
+<h3 id="关于网页加载的时长的Mark"><a href="#关于网页加载的时长的Mark" class="headerlink" title="关于网页加载的时长的Mark"></a>关于网页加载的时长的Mark</h3><blockquote>
+<p>据统计，用户留在加载页面的时间和用户对于该软件的了解程度成正比。一般一个陌生的产品加载时间超过5s用户就会离开页面，当然软件功能足够吸引人的话用户会再进入页面2~3次，而对于不紧急的用户熟悉的产品，用户能够给予的加载时间会稍微长些。一些大的电商网站会由于网页1秒中的等待时长年损失以亿计算。。。</p>
+</blockquote>
+<h3 id="自己理解"><a href="#自己理解" class="headerlink" title="自己理解"></a>自己理解</h3><ul>
+<li>什么是同步？</li>
+</ul>
+<blockquote>
+<p>现在有A、B、C三件事，一个人首先做A，然后做B，最后做C</p>
+</blockquote>
+<ul>
+<li>什么是异步</li>
+</ul>
+<blockquote>
+<p>现在有A、B、C三件事，一个人首先做A，同时做B和C（也可以A,B,C一起做）</p>
+</blockquote>
+<h3 id="代码篇"><a href="#代码篇" class="headerlink" title="代码篇"></a>代码篇</h3><blockquote>
+<p>C#5.0之后async和await出现为异步并行变成带来了很大的方便。稍后会给出具体用法</p>
+</blockquote>
+<blockquote>
+<p>现在介绍Task,Task对象是.Net Framework 4.0之后出现的异步编程的一个重要对象。在一定程度上来说，Task对象可以理解Thread对象的一个升级产品，具体的优点体现在有返回值的委托</p>
+</blockquote>
+<ol>
+<li>Task代码详解</li>
+</ol>
+<p>首先我们测试异步多线程代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">System.Diagnostics.Stopwatch oTime = new System.Diagnostics.Stopwatch();   //定义一个计时对象    </span><br><span class="line">           oTime.Start();                         //开始计时   </span><br><span class="line">           var count1 = Task&lt;int&gt;.Run(() =&gt;</span><br><span class="line">           &#123;</span><br><span class="line">            </span><br><span class="line">                   Thread.Sleep(3000);//模拟处理数据执行时长</span><br><span class="line">               return 1;</span><br><span class="line">           &#125;);</span><br><span class="line">           var count2 = Task&lt;int&gt;.Run(() =&gt;</span><br><span class="line">           &#123;</span><br><span class="line"></span><br><span class="line">               Thread.Sleep(3000);//模拟处理数据执行时长</span><br><span class="line">               return 2;</span><br><span class="line">           &#125;);</span><br><span class="line">          </span><br><span class="line">           var action1 = Task.Run(() =&gt;</span><br><span class="line">           &#123;</span><br><span class="line"></span><br><span class="line">               Thread.Sleep(2000);//模拟处理数据执行时长</span><br><span class="line">               var sum = count1.Result + count2.Result;</span><br><span class="line">               Console.WriteLine(&quot;count1 + count2 = &#123;0&#125;&quot;, sum);</span><br><span class="line">           &#125;);</span><br><span class="line">           Console.WriteLine(&quot;前面执行运算的小伙子，你执行没我快&quot;);</span><br><span class="line">           action1.Wait();</span><br><span class="line">           Thread.Sleep(2000);//模拟处理数据执行时长</span><br><span class="line">           oTime.Stop();</span><br><span class="line">           Console.WriteLine(&quot;程序的运行时间：&#123;0&#125; 秒&quot;, oTime.Elapsed.TotalSeconds);</span><br><span class="line">           return;</span><br></pre></td></tr></table></figure>
+<p><img src="../img/Task.png" alt=""></p>
+<p>上述代码模拟处理数据时长10000毫秒，然后我们测试同步代码执行时长</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">System.Diagnostics.Stopwatch oTime = new System.Diagnostics.Stopwatch();   //定义一个计时对象    </span><br><span class="line">          oTime.Start();                         //开始计时   </span><br><span class="line">          var count1 = 1;</span><br><span class="line">          var count2 = 2;</span><br><span class="line">          var sum = count1 + count2;</span><br><span class="line">          Thread.Sleep(10000);//模拟处理数据执行时长</span><br><span class="line">          Console.WriteLine(&quot;count1 + count2 = &#123;0&#125;&quot;, sum);</span><br><span class="line">          Console.WriteLine(&quot;前面执行运算的小伙子，你执行没我快&quot;);</span><br><span class="line">          oTime.Stop();</span><br><span class="line">          Console.WriteLine(&quot;程序的运行时间：&#123;0&#125; 秒&quot;, oTime.Elapsed.TotalSeconds);</span><br><span class="line">          return;</span><br></pre></td></tr></table></figure>
+<p><img src="../img/Sync.png" alt=""></p>
+<blockquote>
+<p>结论：通过上述代码我们可以发现异步多线程执行在时间上能优化很多</p>
+</blockquote>
+<ol start="2">
+<li>async &amp; await</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 计算sum</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">public async Task Sum()</span><br><span class="line">&#123;</span><br><span class="line">  int count1 = 0, count2 = 0, sum = 0;</span><br><span class="line">    var task1 = Task.Run(() =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        Thread.Sleep(3000);</span><br><span class="line">        count1 = 1;</span><br><span class="line">    &#125;);</span><br><span class="line">    var task2 = Task.Run(() =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        Thread.Sleep(3000);</span><br><span class="line">        count2 = 2;</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    var task3 = Task.Run(async() =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        Thread.Sleep(2000);</span><br><span class="line">        await Task.WhenAll(new Task[] &#123; task1, task2 &#125;);</span><br><span class="line">        sum = count1 + count2;</span><br><span class="line">        Console.WriteLine(&quot;count1 + count2 = &#123;0&#125;&quot;, sum);</span><br><span class="line">    &#125;);</span><br><span class="line">    Thread.Sleep(2000);</span><br><span class="line">    Console.WriteLine(&quot;前面执行运算的小伙子，你执行没我快&quot;);</span><br><span class="line">    await Task.WhenAll(new Task[] &#123; task3 &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../img/Async-await.png" alt=""></p>
+<blockquote>
+<p>结论：以上就是Asnync&amp;Await的应用，有以下几点需要注意</p>
+<ul>
+<li>Asnync&amp;Await是语法糖，必须在同一个方法内使用，否则IDE会有警告且没有意义</li>
+<li>Async修饰的是一个异步方法，类型有void,Task，Task&lt;&gt;</li>
+<li>C/S项目中尽量保持主线程（UI线程）空闲，使得界面不会卡顿且操作界面元素必须是主线程</li>
+<li>可通过线程池来控制线程上限，在服务器资源与效率上找一个平衡点</li>
+</ul>
+</blockquote>
+<h3 id="关于线程池"><a href="#关于线程池" class="headerlink" title="关于线程池"></a>关于线程池</h3><blockquote>
+<p>线程池最多管理线程数量=“处理器数 * 250”。也就是说，如果您的机器为2个2核CPU，那么CLR线程池的容量默认上限便是1000</p>
+<p>通过线程池创建的线程默认为后台线程，优先级默认为Normal。</p>
+</blockquote>
+<p>示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line"> &#123;</span><br><span class="line">   ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadMethod1), new object());//参数可选</span><br><span class="line">   Console.ReadKey();</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public static void ThreadMethod1(object val)</span><br><span class="line"> &#123; </span><br><span class="line">     for (int i = 0; i &lt;= 500000000; i++)</span><br><span class="line">     &#123;</span><br><span class="line">         if (i % 1000000 == 0)</span><br><span class="line">         &#123;</span><br><span class="line">             Console.Write(Thread.CurrentThread.Name);</span><br><span class="line">         &#125; </span><br><span class="line">     &#125; </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.net</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/03/异步多线程那点事/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-程序员的浪漫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -550,6 +699,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
