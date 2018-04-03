@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="https://github-lu.github.io">
   <title>异步多线程那点事 | LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="异步多线程科学起源 服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或">
+  <meta name="description" content="异步多线程科学起源​        服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 ​        需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU">
 <meta name="keywords" content=".net">
 <meta property="og:type" content="article">
 <meta property="og:title" content="异步多线程那点事">
 <meta property="og:url" content="https://github-lu.github.io/2018/04/03/异步多线程那点事/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
-<meta property="og:description" content="异步多线程科学起源 服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或">
+<meta property="og:description" content="异步多线程科学起源​        服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 ​        需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github-lu.github.io/2018/04/03/img/Task.png">
 <meta property="og:image" content="https://github-lu.github.io/2018/04/03/img/Sync.png">
 <meta property="og:image" content="https://github-lu.github.io/2018/04/03/img/Async-await.png">
-<meta property="og:updated_time" content="2018-04-03T15:26:05.439Z">
+<meta property="og:updated_time" content="2018-04-03T15:30:51.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步多线程那点事">
-<meta name="twitter:description" content="异步多线程科学起源 服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或">
+<meta name="twitter:description" content="异步多线程科学起源​        服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。 ​        需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU">
 <meta name="twitter:image" content="https://github-lu.github.io/2018/04/03/img/Task.png">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
@@ -197,20 +197,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="异步多线程科学起源"><a href="#异步多线程科学起源" class="headerlink" title="异步多线程科学起源"></a>异步多线程科学起源</h3><blockquote>
-<p>服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。</p>
-<p>需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或多个IO设备与CPU并发执行。</p>
-<p>另一方面，CPU密集的计算是我们无法控制的。如果是CPU计算出现了瓶颈，那只能给服务器增加CPU，或者增加服务器。而IO操作，实际上是空等别的硬件，这里面的优化就大有可为。</p>
-</blockquote>
-<h3 id="多线程虽好可不要贪杯哦"><a href="#多线程虽好可不要贪杯哦" class="headerlink" title="多线程虽好可不要贪杯哦"></a>多线程虽好可不要贪杯哦</h3><blockquote>
-<p>首先，创建线程/进程和销毁线程/进程的代价非常高昂，尤其是在服务器采用TCP“短连接”方式或UDP方式通讯的情况下，例如，HTTP协议中，客户端发起一个连接后，发送一个请求，服务器回应了这个请求后，连接也就被关闭了。如果采用经典方式设计HTTP服务器，那么过于频繁地创建线程/销毁线程对性能造成的影响是很恶劣的。</p>
-<p>线程还会占用内存。线程的内核对象占几M到几时M。普通的计算机上千个线程就会耗尽内存。</p>
-<p>线程切换也会消耗时间，最终导致服务器性能急剧下降。如果客户端并发请求量很高，同一时刻有很多客户端等待服务器响应的情况下，将会有过多的线程并发执行，频繁的线程切换将用掉一部分计算能力。</p>
-<p>对于一个需要应付同时有大量客户端并发请求的网络服务器来说，线程池是唯一的解决方案。线程池不光能够避免频繁地创建线程和销毁线程，而且能够用数目很少的线程就可以处理大量客户端并发请求。</p>
-</blockquote>
-<h3 id="关于网页加载的时长的Mark"><a href="#关于网页加载的时长的Mark" class="headerlink" title="关于网页加载的时长的Mark"></a>关于网页加载的时长的Mark</h3><blockquote>
-<p>据统计，用户留在加载页面的时间和用户对于该软件的了解程度成正比。一般一个陌生的产品加载时间超过5s用户就会离开页面，当然软件功能足够吸引人的话用户会再进入页面2~3次，而对于不紧急的用户熟悉的产品，用户能够给予的加载时间会稍微长些。一些大的电商网站会由于网页1秒中的等待时长年损失以亿计算。。。</p>
-</blockquote>
+        <h3 id="异步多线程科学起源"><a href="#异步多线程科学起源" class="headerlink" title="异步多线程科学起源"></a>异步多线程科学起源</h3><p>​        服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。</p>
+<p>​        需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或多个IO设备与CPU并发执行。</p>
+<p>​        另一方面，CPU密集的计算是我们无法控制的。如果是CPU计算出现了瓶颈，那只能给服务器增加CPU，或者增加服务器。而IO操作，实际上是空等别的硬件，这里面的优化就大有可为。</p>
+<h3 id="多线程虽好可不要贪杯哦"><a href="#多线程虽好可不要贪杯哦" class="headerlink" title="多线程虽好可不要贪杯哦"></a>多线程虽好可不要贪杯哦</h3><p>​        首先，创建线程/进程和销毁线程/进程的代价非常高昂，尤其是在服务器采用TCP“短连接”方式或UDP方式通讯的情况下，例如，HTTP协议中，客户端发起一个连接后，发送一个请求，服务器回应了这个请求后，连接也就被关闭了。如果采用经典方式设计HTTP服务器，那么过于频繁地创建线程/销毁线程对性能造成的影响是很恶劣的。</p>
+<p>​       线程还会占用内存。线程的内核对象占几M到几时M。普通的计算机上千个线程就会耗尽内存。</p>
+<p>​       线程切换也会消耗时间，最终导致服务器性能急剧下降。如果客户端并发请求量很高，同一时刻有很多客户端等待服务器响应的情况下，将会有过多的线程并发执行，频繁的线程切换将用掉一部分计算能力。</p>
+<p>​       对于一个需要应付同时有大量客户端并发请求的网络服务器来说，线程池是唯一的解决方案。线程池不光能够避免频繁地创建线程和销毁线程，而且能够用数目很少的线程就可以处理大量客户端并发请求。</p>
+<h3 id="关于网页加载的时长的Mark"><a href="#关于网页加载的时长的Mark" class="headerlink" title="关于网页加载的时长的Mark"></a>关于网页加载的时长的Mark</h3><p>​        据统计，用户留在加载页面的时间和用户对于该软件的了解程度成正比。一般一个陌生的产品加载时间超过5s用户就会离开页面，当然软件功能足够吸引人的话用户会再进入页面2~3次，而对于不紧急的用户熟悉的产品，用户能够给予的加载时间会稍微长些。一些大的电商网站会由于网页1秒中的等待时长年损失以亿计算。。。</p>
 <h3 id="自己理解"><a href="#自己理解" class="headerlink" title="自己理解"></a>自己理解</h3><ul>
 <li>什么是同步？</li>
 </ul>
@@ -221,7 +215,7 @@
 <li>什么是异步</li>
 </ul>
 <blockquote>
-<p>现在有A、B、C三件事，一个人首先做A，同时做B和C（也可以A,B,C一起做）</p>
+<p>现在有A、B、C三件事，一个人首先做A，同时做B和C（也可以A,B,C同时做）</p>
 </blockquote>
 <h3 id="代码篇"><a href="#代码篇" class="headerlink" title="代码篇"></a>代码篇</h3><blockquote>
 <p>C#5.0之后async和await出现为异步并行变成带来了很大的方便。稍后会给出具体用法</p>
@@ -505,10 +499,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -522,6 +512,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">浪漫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
             
             <div class="clearfix"></div>
