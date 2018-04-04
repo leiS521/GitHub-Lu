@@ -190,8 +190,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="异步多线程科学起源"><a href="#异步多线程科学起源" class="headerlink" title="异步多线程科学起源"></a>异步多线程科学起源</h3><p>​ 服务器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。</p>
-<p>​ 需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或多个IO设备与CPU并发执行。</p>
+        <a id="more"></a>
+<h3 id="异步多线程科学起源"><a href="#异步多线程科学起源" class="headerlink" title="异步多线程科学起源"></a>异步多线程科学起源</h3><p>器的计算分为IO计算和CPU计算。IO计算指计算任务中以IO为主的计算模型，比如文件服务器、邮件服务器等，混合了大量的网络IO和文件IO；CPU计算指计算任务中没有或很少有IO，比如加密/解密，编码/解码，数学计算等等。</p>
+<p>需要关心的是IO计算，一般的网络服务器程序往往伴随着大量的IO计算。提高性能的途径在于要避免等待IO 的结束，造成CPU空闲，要尽量利用硬件能力，让一个或多个IO设备与CPU并发执行。</p>
 <p>另一方面，CPU密集的计算是我们无法控制的。如果是CPU计算出现了瓶颈，那只能给服务器增加CPU，或者增加服务器。而IO操作，实际上是空等别的硬件，这里面的优化就大有可为。</p>
 <h3 id="多线程虽好可不要贪杯哦"><a href="#多线程虽好可不要贪杯哦" class="headerlink" title="多线程虽好可不要贪杯哦"></a>多线程虽好可不要贪杯哦</h3><p>首先，创建线程/进程和销毁线程/进程的代价非常高昂，尤其是在服务器采用TCP“短连接”方式或UDP方式通讯的情况下，例如，HTTP协议中，客户端发起一个连接后，发送一个请求，服务器回应了这个请求后，连接也就被关闭了。如果采用经典方式设计HTTP服务器，那么过于频繁地创建线程/销毁线程对性能造成的影响是很恶劣的。</p>
 <p>线程还会占用内存。线程的内核对象占几M到几时M。普通的计算机上千个线程就会耗尽内存。</p>
@@ -334,7 +335,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们程序员在追求爱情方面也是非常浪漫的，利用HTML5知识自制的HTML5爱心表白动画，画面非常温馨甜蜜。</p>
+        <a id="more"></a>
+<p>我们程序员在追求爱情方面也是非常浪漫的，利用HTML5知识自制的HTML5爱心表白动画，画面非常温馨甜蜜。</p>
 <hr>
 <p>演示效果</p>
 <p><img src="http://tamron.club/img/ourstory.png" alt=""></p>
@@ -381,6 +383,96 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/04/01/程序员的浪漫/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-Hexo常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/30/Hexo常用命令/">Hexo常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/30/Hexo常用命令/" class="archive-article-date">
+  	<time datetime="2018-03-30T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h2 id="Hexo常用命令笔记"><a href="#Hexo常用命令笔记" class="headerlink" title="Hexo常用命令笔记"></a>Hexo常用命令笔记</h2><h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/30/Hexo常用命令/">展开全文 >></a>
         </p>
       
 
@@ -513,96 +605,6 @@
 
 
   
-    <article id="post-Hexo常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/30/Hexo常用命令/">Hexo常用命令</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/30/Hexo常用命令/" class="archive-article-date">
-  	<time datetime="2018-03-30T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<h2 id="Hexo常用命令笔记"><a href="#Hexo常用命令笔记" class="headerlink" title="Hexo常用命令笔记"></a>Hexo常用命令笔记</h2><h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/30/Hexo常用命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
   
 
 
@@ -696,19 +698,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">.net</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
