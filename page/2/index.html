@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github-lu.github.io">
-  <title>Tag: Hexo | LuTHEr网络博客</title>
+  <title>LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="LuTHEr网络博客">
-<meta property="og:url" content="https://github-lu.github.io/tags/Hexo/index.html">
+<meta property="og:url" content="https://github-lu.github.io/page/2/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -170,46 +170,63 @@
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-Sql脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/30/Hexo常用命令/" class="archive-article-date">
-  	<time datetime="2018-03-30T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/30/Hexo常用命令/">Hexo常用命令</a>
+      <a class="article-title" href="/2018/03/30/Sql脚本/">Sql脚本</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/30/Sql脚本/" class="archive-article-date">
+  	<time datetime="2018-03-30T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h2 id="Sql脚本笔记"><a href="#Sql脚本笔记" class="headerlink" title="Sql脚本笔记"></a>Sql脚本笔记</h2><h3 id="快速查看表结构"><a href="#快速查看表结构" class="headerlink" title="快速查看表结构"></a>快速查看表结构</h3><p>假如有一天和别人对接功能，别人给你扔过来个数据库，里面有几张表。如果手动去点击查询的话效率会非常的慢。以下Sql代码执行查询后会将表的的字段说明，类型，IsNULL等信息清楚的展示出来。当然前提是表中有字段说明，没有的话就得慢慢摸索了。。。</p>
+<p>Sql数据库查询表结构可以通过以下代码查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">$ --快速查看表结构（比较全面的）</span><br><span class="line">SELECT  CASE WHEN col.colorder = 1 THEN obj.name</span><br><span class="line">                  ELSE <span class="string">''</span></span><br><span class="line">             END AS 表名,</span><br><span class="line">        col.colorder AS 序号 ,</span><br><span class="line">        col.name AS 列名 ,</span><br><span class="line">        ISNULL(ep.[value], <span class="string">''</span>) AS 列说明 ,</span><br><span class="line">        t.name AS 数据类型 ,</span><br><span class="line">        col.length AS 长度 ,</span><br><span class="line">        ISNULL(COLUMNPROPERTY(col.id, col.name, <span class="string">'Scale'</span>), 0) AS 小数位数 ,</span><br><span class="line">        CASE WHEN COLUMNPROPERTY(col.id, col.name, <span class="string">'IsIdentity'</span>) = 1 THEN <span class="string">'√'</span></span><br><span class="line">             ELSE <span class="string">''</span></span><br><span class="line">        END AS 标识 ,</span><br><span class="line">        CASE WHEN EXISTS ( SELECT   1</span><br><span class="line">                           FROM     dbo.sysindexes si</span><br><span class="line">                                    INNER JOIN dbo.sysindexkeys sik ON si.id = sik.id</span><br><span class="line">                                                              AND si.indid = sik.indid</span><br><span class="line">                                    INNER JOIN dbo.syscolumns sc ON sc.id = sik.id</span><br><span class="line">                                                              AND sc.colid = sik.colid</span><br><span class="line">                                    INNER JOIN dbo.sysobjects so ON so.name = si.name</span><br><span class="line">                                                              AND so.xtype = <span class="string">'PK'</span></span><br><span class="line">                           WHERE    sc.id = col.id</span><br><span class="line">                                    AND sc.colid = col.colid ) THEN <span class="string">'√'</span></span><br><span class="line">             ELSE <span class="string">''</span></span><br><span class="line">        END AS 主键 ,</span><br><span class="line">        CASE WHEN col.isnullable = 1 THEN <span class="string">'√'</span></span><br><span class="line">             ELSE <span class="string">''</span></span><br><span class="line">        END AS 允许空 ,</span><br><span class="line">        ISNULL(comm.text, <span class="string">''</span>) AS 默认值</span><br><span class="line">FROM    dbo.syscolumns col</span><br><span class="line">        LEFT  JOIN dbo.systypes t ON col.xtype = t.xusertype</span><br><span class="line">        inner JOIN dbo.sysobjects obj ON col.id = obj.id</span><br><span class="line">                                         AND obj.xtype = <span class="string">'U'</span></span><br><span class="line">                                         AND obj.status &gt;= 0</span><br><span class="line">        LEFT  JOIN dbo.syscomments comm ON col.cdefault = comm.id</span><br><span class="line">        LEFT  JOIN sys.extended_properties ep ON col.id = ep.major_id</span><br><span class="line">                                                      AND col.colid = ep.minor_id</span><br><span class="line">                                                      AND ep.name = <span class="string">'MS_Description'</span></span><br><span class="line">        LEFT  JOIN sys.extended_properties epTwo ON obj.id = epTwo.major_id</span><br><span class="line">                                                         AND epTwo.minor_id = 0</span><br><span class="line">                                                         AND epTwo.name = <span class="string">'MS_Description'</span></span><br><span class="line">WHERE   obj.name = <span class="string">'NcCorporation'</span>--表名</span><br><span class="line">ORDER BY col.colorder ;</span><br></pre></td></tr></table></figure>
+<h3 id="Sql循环插入100万条数据"><a href="#Sql循环插入100万条数据" class="headerlink" title="Sql循环插入100万条数据"></a>Sql循环插入100万条数据</h3><p>我们经常会用代码处理一些大数据，Sql执行效率会显得异常重要。以下代码是循环插入100万条数据，可模拟业务数据进行Sql代码调优。</p>
+<ul>
+<li>首先创建Student表</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ create table student</span><br><span class="line">(</span><br><span class="line">sno int ,</span><br><span class="line">sname VARCHAR(200)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>向数据库中插入100万条随机姓名</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ DECLARE @LN VARCHAR(300),@MN VARCHAR(200),@FN VARCHAR(200)</span><br><span class="line">DECLARE @LN_N INT,@MN_N INT,@FN_N INT</span><br><span class="line">SET @LN=<span class="string">'李王张刘陈杨黄赵周吴徐孙朱马胡郭林何高梁郑罗宋谢唐韩曹许邓萧冯曾程蔡彭潘袁于董余苏叶吕魏蒋田杜丁沈姜范江傅钟卢汪戴崔任陆廖姚方金邱夏谭韦贾邹石熊孟秦阎薛侯雷白龙段郝孔邵史毛常万顾赖武康贺严尹钱施牛洪龚'</span></span><br><span class="line">SET @MN=<span class="string">'德绍宗邦裕傅家積善昌世贻维孝友继绪定呈祥大正启仕执必定仲元魁家生先泽远永盛在人为任伐风树秀文光谨潭棰'</span></span><br><span class="line">SET @FN=<span class="string">'丽云峰磊亮宏红洪量良梁良粮靓七旗奇琪谋牟弭米密祢磊类蕾肋庆情清青兴幸星刑'</span></span><br><span class="line">SET @LN_N=LEN(@LN)</span><br><span class="line">SET @MN_N=LEN(@MN)</span><br><span class="line">SET @FN_N=LEN(@FN)</span><br><span class="line">DECLARE @TMP VARCHAR(1000),@I INT</span><br><span class="line">SET @I=100</span><br><span class="line">WHILE @I&lt;1000000</span><br><span class="line">BEGIN</span><br><span class="line">    SET @TMP=CAST(SUBSTRING(@LN,CAST(RAND()*@LN_N AS INT),1) AS VARCHAR)</span><br><span class="line">    SET @TMP=@TMP+CAST(SUBSTRING(@MN,CAST(RAND()*@MN_N AS INT),1) AS VARCHAR)</span><br><span class="line">    SET @TMP=@TMP+CAST(SUBSTRING(@FN,CAST(RAND()*@FN_N AS INT),1) AS VARCHAR)</span><br><span class="line">    INSERT INTO student(sno,sname)VALUES(<span class="string">'2005'</span>+@I,@TMP)</span><br><span class="line">    SET @I=@I+1</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -222,17 +239,44 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/30/Sql脚本/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -254,10 +298,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
