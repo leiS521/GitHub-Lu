@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="LuTHEr网络博客">
 <meta property="og:description" content="今天做的笔记是Redis缓存技术，主要是安装  详细内容参考：https://blog.csdn.net/liqingtx/article/details/60330555  个人笔记Redis是一种基于C语言开发的NoSql缓存工具，主要应用于非关系型大数据的存储查询 优势  Redis能读的速度是110000次/s,写的速度是81000次/s 丰富的数据类型 – Redis支持二进制案例的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisPhoto.jpg">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisClientUI.png">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisServer1.png">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisClientServer2.png">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisServer3.png">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisClient2.png">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisClientServer2.png">
-<meta property="og:image" content="https://github-lu.github.io/2018/04/04/img/RedisClient3.png">
-<meta property="og:updated_time" content="2018-04-04T06:54:51.373Z">
+<meta property="og:image" content="http://tamron.club/img/RedisPhoto.jpg">
+<meta property="og:image" content="http://tamron.club/img/RedisClientUI.png">
+<meta property="og:image" content="http://tamron.club/img/RedisServer1.png">
+<meta property="og:image" content="http://tamron.club/img/RedisClientServer2.png">
+<meta property="og:image" content="http://tamron.club/img/RedisServer3.png">
+<meta property="og:image" content="http://tamron.club/img/RedisClient2.png">
+<meta property="og:image" content="http://tamron.club/imgg/RedisClientServer2.png">
+<meta property="og:image" content="http://tamron.club/img/RedisClient3.png">
+<meta property="og:updated_time" content="2018-04-06T16:02:40.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis缓存技术（上）">
 <meta name="twitter:description" content="今天做的笔记是Redis缓存技术，主要是安装  详细内容参考：https://blog.csdn.net/liqingtx/article/details/60330555  个人笔记Redis是一种基于C语言开发的NoSql缓存工具，主要应用于非关系型大数据的存储查询 优势  Redis能读的速度是110000次/s,写的速度是81000次/s 丰富的数据类型 – Redis支持二进制案例的">
-<meta name="twitter:image" content="https://github-lu.github.io/2018/04/04/img/RedisPhoto.jpg">
+<meta name="twitter:image" content="http://tamron.club/img/RedisPhoto.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
   
@@ -249,26 +249,26 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </blockquote>
-<p><img src="../img/RedisPhoto.jpg" alt=""></p>
+<p><img src="http://tamron.club/img/RedisPhoto.jpg" alt=""></p>
 <h3 id="基于Windows安装"><a href="#基于Windows安装" class="headerlink" title="基于Windows安装"></a>基于Windows安装</h3><h6 id="详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤"><a href="#详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤" class="headerlink" title="详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤"></a>详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤</h6><p>Redis最关键的是<strong>服务端</strong>和数据库类似，是Redis的核心所在；Redis客户端提供了Redis数据的可视化工具，并提供了一些简单的功能。我们先安装客户端。。。</p>
-<p><img src="../img/RedisClientUI.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClientUI.png" alt=""></p>
 <p>一般windows应用程序，双击一直点下一步就好了，这样我们就装好客户端了；接下来是服务端</p>
 <p>我们下载服务端程序,解压文件，双击点开文件夹</p>
-<p><img src="../img/RedisServer1.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisServer1.png" alt=""></p>
 <p>双击点开文件夹</p>
-<p><img src="../img/RedisClientServer2.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClientServer2.png" alt=""></p>
 <p>然后我们运行<code>run.bat</code>，或者以运行<code>cmd</code>进入当前目录，执行<code>redis-server.exe redis.conf</code></p>
-<p><img src="../img/RedisServer3.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisServer3.png" alt=""></p>
 <p>可以发现Redis服务端已经安装成功，端口号为6479</p>
 <p>现在我们打开Redis客户端管理工具，点击<code>Add New Connection</code></p>
-<p><img src="../img/RedisClient2.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClient2.png" alt=""></p>
 <p>可以发现客户端连接一个缓存服务器，需要配置<code>Name</code>（名称）,<code>Host</code>（IP）<code>,Port</code>(端口号)，<code>Auth</code>(理解为密码)。我们给这个缓存库起个名字叫做<code>LocalRedis</code> ；Host是你要连接的缓存服务器的地址；这里我们127.0.0.1；</p>
 <p><code>Port</code>在安装的时候已经给出是6479；接下来是密码，我们打开服务器的<code>redis.conf</code>文件</p>
-<p><img src="../img/RedisClientServer2.png" alt=""></p>
+<p><img src="http://tamron.club/imgg/RedisClientServer2.png" alt=""></p>
 <p>找到如下代码，<code>requirepass</code>后面的就是密码了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass ztredis(*)134&amp;^%xswed</span><br></pre></td></tr></table></figure>
 <p>现在我们就可以登录客户端了</p>
-<p><img src="../img/RedisClient3.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClient3.png" alt=""></p>
 <p>到这里，我们的安装步骤已经完成。</p>
 <h3 id="关于Redis一些理解"><a href="#关于Redis一些理解" class="headerlink" title="关于Redis一些理解"></a>关于Redis一些理解</h3><ul>
 <li>Redis默认是开启<strong>持久化</strong>的，可根据业务需要关闭，只当作缓存来用，具体在<code>redis.conf</code>配置</li>
@@ -538,15 +538,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
               <li class="article-tag-list-item">

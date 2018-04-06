@@ -322,26 +322,26 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </blockquote>
-<p><img src="../img/RedisPhoto.jpg" alt=""></p>
+<p><img src="http://tamron.club/img/RedisPhoto.jpg" alt=""></p>
 <h3 id="基于Windows安装"><a href="#基于Windows安装" class="headerlink" title="基于Windows安装"></a>基于Windows安装</h3><h6 id="详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤"><a href="#详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤" class="headerlink" title="详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤"></a>详细的教程在参考链接中已经给出中已经给出，下面看看我的安装步骤</h6><p>Redis最关键的是<strong>服务端</strong>和数据库类似，是Redis的核心所在；Redis客户端提供了Redis数据的可视化工具，并提供了一些简单的功能。我们先安装客户端。。。</p>
-<p><img src="../img/RedisClientUI.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClientUI.png" alt=""></p>
 <p>一般windows应用程序，双击一直点下一步就好了，这样我们就装好客户端了；接下来是服务端</p>
 <p>我们下载服务端程序,解压文件，双击点开文件夹</p>
-<p><img src="../img/RedisServer1.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisServer1.png" alt=""></p>
 <p>双击点开文件夹</p>
-<p><img src="../img/RedisClientServer2.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClientServer2.png" alt=""></p>
 <p>然后我们运行<code>run.bat</code>，或者以运行<code>cmd</code>进入当前目录，执行<code>redis-server.exe redis.conf</code></p>
-<p><img src="../img/RedisServer3.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisServer3.png" alt=""></p>
 <p>可以发现Redis服务端已经安装成功，端口号为6479</p>
 <p>现在我们打开Redis客户端管理工具，点击<code>Add New Connection</code></p>
-<p><img src="../img/RedisClient2.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClient2.png" alt=""></p>
 <p>可以发现客户端连接一个缓存服务器，需要配置<code>Name</code>（名称）,<code>Host</code>（IP）<code>,Port</code>(端口号)，<code>Auth</code>(理解为密码)。我们给这个缓存库起个名字叫做<code>LocalRedis</code> ；Host是你要连接的缓存服务器的地址；这里我们127.0.0.1；</p>
 <p><code>Port</code>在安装的时候已经给出是6479；接下来是密码，我们打开服务器的<code>redis.conf</code>文件</p>
-<p><img src="../img/RedisClientServer2.png" alt=""></p>
+<p><img src="http://tamron.club/imgg/RedisClientServer2.png" alt=""></p>
 <p>找到如下代码，<code>requirepass</code>后面的就是密码了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass ztredis(*)134&amp;^%xswed</span><br></pre></td></tr></table></figure>
 <p>现在我们就可以登录客户端了</p>
-<p><img src="../img/RedisClient3.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClient3.png" alt=""></p>
 <p>到这里，我们的安装步骤已经完成。</p>
 <h3 id="关于Redis一些理解"><a href="#关于Redis一些理解" class="headerlink" title="关于Redis一些理解"></a>关于Redis一些理解</h3><ul>
 <li>Redis默认是开启<strong>持久化</strong>的，可根据业务需要关闭，只当作缓存来用，具体在<code>redis.conf</code>配置</li>
@@ -443,7 +443,7 @@ var _hmt = _hmt || [];
 <p>线程还会占用内存。线程的内核对象占几M到几时M。普通的计算机上千个线程就会耗尽内存。</p>
 <p>线程切换也会消耗时间，最终导致服务器性能急剧下降。如果客户端并发请求量很高，同一时刻有很多客户端等待服务器响应的情况下，将会有过多的线程并发执行，频繁的线程切换将用掉一部分计算能力。</p>
 <p>对于一个需要应付同时有大量客户端并发请求的网络服务器来说，线程池是唯一的解决方案。线程池不光能够避免频繁地创建线程和销毁线程，而且能够用数目很少的线程就可以处理大量客户端并发请求。</p>
-<p><img src="../img/timg.jpg" alt=""></p>
+<p><img src="http://tamron.club/img/timg.jpg" alt=""></p>
 <h3 id="关于网页加载的时长的Mark"><a href="#关于网页加载的时长的Mark" class="headerlink" title="关于网页加载的时长的Mark"></a>关于网页加载的时长的Mark</h3><p>​据统计，用户留在加载页面的时间和用户对于该软件的了解程度成正比。一般一个陌生的产品加载时间超过5s用户就会离开页面，当然软件功能足够吸引人的话用户会再进入页面2~3次，而对于不紧急的用户熟悉的产品，用户能够给予的加载时间会稍微长些。一些大的电商网站会由于网页1秒中的等待时长年损失以亿计算。。。</p>
 <h3 id="自己理解"><a href="#自己理解" class="headerlink" title="自己理解"></a>自己理解</h3><ul>
 <li>什么是同步？</li>
@@ -468,10 +468,10 @@ var _hmt = _hmt || [];
 </ol>
 <p>首先我们测试异步多线程代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">System.Diagnostics.Stopwatch oTime = new System.Diagnostics.Stopwatch();   //定义一个计时对象    </span><br><span class="line">           oTime.Start();                         //开始计时   </span><br><span class="line">           var count1 = Task&lt;int&gt;.Run(() =&gt;</span><br><span class="line">           &#123;</span><br><span class="line">            </span><br><span class="line">                   Thread.Sleep(3000);//模拟处理数据执行时长</span><br><span class="line">               return 1;</span><br><span class="line">           &#125;);</span><br><span class="line">           var count2 = Task&lt;int&gt;.Run(() =&gt;</span><br><span class="line">           &#123;</span><br><span class="line"></span><br><span class="line">               Thread.Sleep(3000);//模拟处理数据执行时长</span><br><span class="line">               return 2;</span><br><span class="line">           &#125;);</span><br><span class="line">          </span><br><span class="line">           var action1 = Task.Run(() =&gt;</span><br><span class="line">           &#123;</span><br><span class="line"></span><br><span class="line">               Thread.Sleep(2000);//模拟处理数据执行时长</span><br><span class="line">               var sum = count1.Result + count2.Result;</span><br><span class="line">               Console.WriteLine(&quot;count1 + count2 = &#123;0&#125;&quot;, sum);</span><br><span class="line">           &#125;);</span><br><span class="line">           Console.WriteLine(&quot;前面执行运算的小伙子，你执行没我快&quot;);</span><br><span class="line">           action1.Wait();</span><br><span class="line">           Thread.Sleep(2000);//模拟处理数据执行时长</span><br><span class="line">           oTime.Stop();</span><br><span class="line">           Console.WriteLine(&quot;程序的运行时间：&#123;0&#125; 秒&quot;, oTime.Elapsed.TotalSeconds);</span><br><span class="line">           return;</span><br></pre></td></tr></table></figure>
-<p><img src="../img/Task.png" alt=""></p>
+<p><img src="http://tamron.club/img/Task.png" alt=""></p>
 <p>上述代码模拟处理数据时长10000毫秒，然后我们测试同步代码执行时长</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">System.Diagnostics.Stopwatch oTime = new System.Diagnostics.Stopwatch();   //定义一个计时对象    </span><br><span class="line">          oTime.Start();                         //开始计时   </span><br><span class="line">          var count1 = 1;</span><br><span class="line">          var count2 = 2;</span><br><span class="line">          var sum = count1 + count2;</span><br><span class="line">          Thread.Sleep(10000);//模拟处理数据执行时长</span><br><span class="line">          Console.WriteLine(&quot;count1 + count2 = &#123;0&#125;&quot;, sum);</span><br><span class="line">          Console.WriteLine(&quot;前面执行运算的小伙子，你执行没我快&quot;);</span><br><span class="line">          oTime.Stop();</span><br><span class="line">          Console.WriteLine(&quot;程序的运行时间：&#123;0&#125; 秒&quot;, oTime.Elapsed.TotalSeconds);</span><br><span class="line">          return;</span><br></pre></td></tr></table></figure>
-<p><img src="../img/Sync.png" alt=""></p>
+<p><img src="http://tamron.club/img/Sync.png" alt=""></p>
 <blockquote>
 <p>结论：通过上述代码我们可以发现异步多线程执行在时间上能优化很多</p>
 </blockquote>
@@ -479,7 +479,7 @@ var _hmt = _hmt || [];
 <li>async &amp; await</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 计算sum</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">public async Task Sum()</span><br><span class="line">&#123;</span><br><span class="line">  int count1 = 0, count2 = 0, sum = 0;</span><br><span class="line">    var task1 = Task.Run(() =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        Thread.Sleep(3000);</span><br><span class="line">        count1 = 1;</span><br><span class="line">    &#125;);</span><br><span class="line">    var task2 = Task.Run(() =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        Thread.Sleep(3000);</span><br><span class="line">        count2 = 2;</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    var task3 = Task.Run(async() =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        Thread.Sleep(2000);</span><br><span class="line">        await Task.WhenAll(new Task[] &#123; task1, task2 &#125;);</span><br><span class="line">        sum = count1 + count2;</span><br><span class="line">        Console.WriteLine(&quot;count1 + count2 = &#123;0&#125;&quot;, sum);</span><br><span class="line">    &#125;);</span><br><span class="line">    Thread.Sleep(2000);</span><br><span class="line">    Console.WriteLine(&quot;前面执行运算的小伙子，你执行没我快&quot;);</span><br><span class="line">    await Task.WhenAll(new Task[] &#123; task3 &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="../img/Async-await.png" alt=""></p>
+<p><img src="http://tamron.club/img/Async-await.png" alt=""></p>
 <blockquote>
 <p>结论：以上就是Asnync&amp;Await的应用，有以下几点需要注意</p>
 <ul>
@@ -853,15 +853,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
               <li class="article-tag-list-item">
