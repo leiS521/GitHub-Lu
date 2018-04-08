@@ -22,9 +22,9 @@
 <meta property="og:image" content="http://tamron.club/img/RedisClientServer2.png">
 <meta property="og:image" content="http://tamron.club/img/RedisServer3.png">
 <meta property="og:image" content="http://tamron.club/img/RedisClient2.png">
-<meta property="og:image" content="http://tamron.club/imgg/RedisClientServer2.png">
+<meta property="og:image" content="http://tamron.club/img/RedisClientServer2.png">
 <meta property="og:image" content="http://tamron.club/img/RedisClient3.png">
-<meta property="og:updated_time" content="2018-04-06T16:02:40.657Z">
+<meta property="og:updated_time" content="2018-04-08T03:20:15.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis缓存技术（上）">
 <meta name="twitter:description" content="今天做的笔记是Redis缓存技术，主要是安装  详细内容参考：https://blog.csdn.net/liqingtx/article/details/60330555  个人笔记Redis是一种基于C语言开发的NoSql缓存工具，主要应用于非关系型大数据的存储查询 优势  Redis能读的速度是110000次/s,写的速度是81000次/s 丰富的数据类型 – Redis支持二进制案例的">
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
 <p><img src="http://tamron.club/img/RedisClient2.png" alt=""></p>
 <p>可以发现客户端连接一个缓存服务器，需要配置<code>Name</code>（名称）,<code>Host</code>（IP）<code>,Port</code>(端口号)，<code>Auth</code>(理解为密码)。我们给这个缓存库起个名字叫做<code>LocalRedis</code> ；Host是你要连接的缓存服务器的地址；这里我们127.0.0.1；</p>
 <p><code>Port</code>在安装的时候已经给出是6479；接下来是密码，我们打开服务器的<code>redis.conf</code>文件</p>
-<p><img src="http://tamron.club/imgg/RedisClientServer2.png" alt=""></p>
+<p><img src="http://tamron.club/img/RedisClientServer2.png" alt=""></p>
 <p>找到如下代码，<code>requirepass</code>后面的就是密码了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass ztredis(*)134&amp;^%xswed</span><br></pre></td></tr></table></figure>
 <p>现在我们就可以登录客户端了</p>
