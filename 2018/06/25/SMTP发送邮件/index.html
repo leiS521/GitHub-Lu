@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github-lu.github.io">
-  <title>Redis缓存技术（下） | LuTHEr网络博客</title>
+  <title>SMTP协议发送邮件 | LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="继上一篇的Redis安装篇后，今天我们来研究以下C#具体操作Redis的方法  代码篇首先我们安装依赖库">
-<meta name="keywords" content="缓存">
+  <meta name="description" content="SMTP协议发送邮件例如A使用163邮箱发送邮件给B(qq邮箱)。首先A会把邮件通过SMTP（Simple Mail Transfer Protocol）协议传输到163的Smtp服务器上，163的Smtp服务器会根据B的邮箱账号，把邮件通过Smtp协议发给QQ邮箱的Smtp服务器。QQ的Smtp服务器接收到邮件消息后会将之存储在QQ邮箱的邮件存储设备上。当B登陆QQ邮箱后，如果有新邮件，POP3">
+<meta name="keywords" content="邮件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis缓存技术（下）">
-<meta property="og:url" content="https://github-lu.github.io/2018/04/04/Redis缓存技术（下）/index.html">
+<meta property="og:title" content="SMTP协议发送邮件">
+<meta property="og:url" content="https://github-lu.github.io/2018/06/25/SMTP发送邮件/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
-<meta property="og:description" content="继上一篇的Redis安装篇后，今天我们来研究以下C#具体操作Redis的方法  代码篇首先我们安装依赖库">
+<meta property="og:description" content="SMTP协议发送邮件例如A使用163邮箱发送邮件给B(qq邮箱)。首先A会把邮件通过SMTP（Simple Mail Transfer Protocol）协议传输到163的Smtp服务器上，163的Smtp服务器会根据B的邮箱账号，把邮件通过Smtp协议发给QQ邮箱的Smtp服务器。QQ的Smtp服务器接收到邮件消息后会将之存储在QQ邮箱的邮件存储设备上。当B登陆QQ邮箱后，如果有新邮件，POP3">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://tamron.club/img/2018-4-4_1.jpg">
-<meta property="og:image" content="http://tamron.club/img/RedisNuget.png">
-<meta property="og:image" content="http://tamron.club/img/RedisConsole.png">
-<meta property="og:image" content="http://tamron.club/img/RedisManage.png">
-<meta property="og:updated_time" content="2018-07-23T01:10:11.077Z">
+<meta property="og:updated_time" content="2018-07-23T01:10:11.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis缓存技术（下）">
-<meta name="twitter:description" content="继上一篇的Redis安装篇后，今天我们来研究以下C#具体操作Redis的方法  代码篇首先我们安装依赖库">
-<meta name="twitter:image" content="http://tamron.club/img/2018-4-4_1.jpg">
+<meta name="twitter:title" content="SMTP协议发送邮件">
+<meta name="twitter:description" content="SMTP协议发送邮件例如A使用163邮箱发送邮件给B(qq邮箱)。首先A会把邮件通过SMTP（Simple Mail Transfer Protocol）协议传输到163的Smtp服务器上，163的Smtp服务器会根据B的邮箱账号，把邮件通过Smtp协议发给QQ邮箱的Smtp服务器。QQ的Smtp服务器接收到邮件消息后会将之存储在QQ邮箱的邮件存储设备上。当B登陆QQ邮箱后，如果有新邮件，POP3">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
   
@@ -201,37 +196,27 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redis缓存技术（下）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SMTP发送邮件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Redis缓存技术（下）
+      SMTP协议发送邮件
     </h1>
   
 
         
-        <a href="/2018/04/04/Redis缓存技术（下）/" class="archive-article-date">
-  	<time datetime="2018-04-04T10:34:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+        <a href="/2018/06/25/SMTP发送邮件/" class="archive-article-date">
+  	<time datetime="2018-06-25T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>继上一篇的Redis安装篇后，今天我们来研究以下C#具体操作Redis的方法</p>
-<p><img src="http://tamron.club/img/2018-4-4_1.jpg" alt=""></p>
-<h3 id="代码篇"><a href="#代码篇" class="headerlink" title="代码篇"></a>代码篇</h3><p>首先我们安装依赖库</p>
-<p><img src="http://tamron.club/img/RedisNuget.png" alt=""><br><a id="more"></a> </p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">       &#123;</span><br><span class="line">           var redis = ConnectionMultiplexer.Connect(&quot;Localhost:6479,password=ztredis(*)134&amp;^%xswed&quot;);</span><br><span class="line">           var rel = &quot;&quot;;</span><br><span class="line">           //redis.GetDatabase(0)指定数据库0；</span><br><span class="line">           //如果不填写则默认为-1  </span><br><span class="line">           IDatabase db = redis.GetDatabase(0);</span><br><span class="line">           db.StringSet(&quot;key&quot;, &quot;Hello World&quot;);//把值存入key中  </span><br><span class="line">           rel = db.StringGet(&quot;key&quot;);//读取key中的值  </span><br><span class="line">           Console.Write(rel);//打印key中的值</span><br><span class="line">           DateTime time = DateTime.Now.AddDays(30);</span><br><span class="line">           db.KeyExpire(&quot;key&quot;, time);//设置key失效时间  </span><br><span class="line">           redis.Close();//关闭连接  </span><br><span class="line">           redis.Dispose();//释放资源  </span><br><span class="line">           Console.Read();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<p>控制台结果如下:</p>
-<p><img src="http://tamron.club/img/RedisConsole.png" alt=""></p>
-<p>Redis客户端如下：</p>
-<p><img src="http://tamron.club/img/RedisManage.png" alt=""></p>
-<p>以上就是我们C#写入读取Reids的简单示例</p>
+        <h2 id="SMTP协议发送邮件"><a href="#SMTP协议发送邮件" class="headerlink" title="SMTP协议发送邮件"></a>SMTP协议发送邮件</h2><p>例如A使用163邮箱发送邮件给B(qq邮箱)。首先A会把邮件通过SMTP（Simple Mail Transfer Protocol）协议传输到163的Smtp服务器上，163的Smtp服务器会根据B的邮箱账号，把邮件通过Smtp协议发给QQ邮箱的Smtp服务器。QQ的Smtp服务器接收到邮件消息后会将之存储在QQ邮箱的邮件存储设备上。当B登陆QQ邮箱后，如果有新邮件，POP3服务器就会从QQ邮箱的邮件存储设备上读出邮件并通过POP3/IMAP服务发送给邮件客户端的B。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">private void SendMail()</span><br><span class="line">        &#123;</span><br><span class="line">            //简单邮件传输协议类</span><br><span class="line">            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();</span><br><span class="line">            client.Host = &quot;smtp.ym.163.com&quot;;//邮件服务器</span><br><span class="line">            client.Port = 25;//smtp主机上的端口号,默认是25.</span><br><span class="line">            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;//邮件发送方式:通过网络发送到SMTP服务器</span><br><span class="line">            client.Credentials = new System.Net.NetworkCredential(&quot;登录人邮箱&quot;, &quot;邮箱密码&quot;);//凭证,发件人登录邮箱的用户名和密码</span><br><span class="line"></span><br><span class="line">            //电子邮件信息类</span><br><span class="line">            System.Net.Mail.MailAddress fromAddress = new System.Net.Mail.MailAddress(&quot;发送人邮箱&quot;, &quot;名称&quot;);//发件人Email,在邮箱是这样显示的,[发件人:小明&lt;panthervic@163.com&gt;;]</span><br><span class="line">            System.Net.Mail.MailAddress toAddress = new System.Net.Mail.MailAddress(&quot;收件人邮箱&quot;, &quot;名称&quot;);//收件人Email,在邮箱是这样显示的, [收件人:小红&lt;43327681@163.com&gt;;]</span><br><span class="line">            System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage(fromAddress, toAddress);//创建一个电子邮件类</span><br><span class="line">            mailMessage.Subject = &quot;TaskService停止&quot;;</span><br><span class="line">            //string filePath = Server.MapPath(&quot;/index.html&quot;);//邮件的内容可以是一个html文本.</span><br><span class="line">            //System.IO.StreamReader read = new System.IO.StreamReader(filePath, System.Text.Encoding.GetEncoding(&quot;GB2312&quot;));</span><br><span class="line">            //string mailBody = read.ReadToEnd();</span><br><span class="line">            //read.Close();</span><br><span class="line">            //mailMessage.Body = mailBody;//可为html格式文本</span><br><span class="line">            IPHostEntry fromHE = Dns.GetHostEntry(Dns.GetHostName());</span><br><span class="line">            IPEndPoint ipEndPointFrom = new IPEndPoint(fromHE.AddressList[1], 80);</span><br><span class="line">            EndPoint EndPointFrom = (ipEndPointFrom);</span><br><span class="line">            mailMessage.Body = &quot;服务器地址：&quot;+ EndPointFrom;//可为html格式文本</span><br><span class="line">            mailMessage.SubjectEncoding = System.Text.Encoding.UTF8;//邮件主题编码</span><br><span class="line">            mailMessage.BodyEncoding = System.Text.Encoding.UTF8;//邮件内容编码</span><br><span class="line">            mailMessage.IsBodyHtml = true;//邮件内容是否为html格式</span><br><span class="line">            mailMessage.Priority = System.Net.Mail.MailPriority.High;//邮件的优先级,有三个值:高(在邮件主题前有一个红色感叹号,表示紧急),低(在邮件主题前有一个蓝色向下箭头,表示缓慢),正常(无显示).</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                client.Send(mailMessage);//发送邮件</span><br><span class="line">                //client.SendAsync(mailMessage, &quot;ojb&quot;);异步方法发送邮件,不会阻塞线程.</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(ex);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -276,7 +261,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
         		</li>
       		
 		</ul>
@@ -343,7 +328,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github-lu.github.io/2018/04/04/Redis缓存技术（下）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github-lu.github.io/2018/06/25/SMTP发送邮件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -357,18 +342,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/06/25/SMTP发送邮件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/17/23种设计模式概念/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          SMTP协议发送邮件
+          23种设计模式概念
         
       </div>
     </a>
   
   
-    <a href="/2018/04/04/Redis缓存技术（上）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis缓存技术（上）</div>
+    <a href="/2018/04/04/Redis缓存技术（下）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis缓存技术（下）</div>
       <i class="icon-circle-right"></i>
     </a>
   
