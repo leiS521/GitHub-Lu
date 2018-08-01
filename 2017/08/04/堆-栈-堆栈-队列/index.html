@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="LuTHEr网络博客">
 <meta property="og:description" content="今天做的笔记是基本数据结构知识 个人笔记 大学里面那本严蔚敏的数据结构不厚，内容丰富，但是复杂问题的讲解方面篇幅这样就少了，比较难理解，c也不是很擅长，但是基本的思路还是有的。 简单的链表，数组，堆栈，队列，图，几个排序算法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-01T03:53:28.461Z">
+<meta property="og:updated_time" content="2018-08-01T05:52:57.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆&amp;栈&amp;堆栈&amp;队列">
 <meta name="twitter:description" content="今天做的笔记是基本数据结构知识 个人笔记 大学里面那本严蔚敏的数据结构不厚，内容丰富，但是复杂问题的讲解方面篇幅这样就少了，比较难理解，c也不是很擅长，但是基本的思路还是有的。 简单的链表，数组，堆栈，队列，图，几个排序算法。">
@@ -228,32 +228,31 @@ var _hmt = _hmt || [];
 <p> Java 替你做了太多事情，那么多动不动还支持范型的容器类，加上垃圾收集，会让你觉得编程很容易。但你有没有想过，那些容器类是怎么来的，以及它存在的意义是什么？最粗浅的，比如 ArrayList 这个类，你想过它的存在是多么大的福利吗——一个可以随机访问、自动增加容量的数组，这种东西 C 是没有的，要自己实现。但是，具体怎么实现呢？如果你对这种问题感兴趣，那数据结构是一定要看的。甚至，面向对象编程范式本身，就是个数据结构问题：怎么才能把数据和操作数据的方法封装到一起，来造出 class / prototype 这种东西？</p>
 <p> 此外，很重要的一点是，数据结构也是通向各种实用算法的基石，所以学习数据结构都是提升内力的事情。</p>
 </blockquote>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="堆：什么是堆？又该怎么理解呢？"><a href="#堆：什么是堆？又该怎么理解呢？" class="headerlink" title="堆：什么是堆？又该怎么理解呢？"></a>堆：什么是堆？又该怎么理解呢？</h4><ol>
-<li>堆通常是一个可以被看做一棵树的数组对象。堆总是满足下列性质：</li>
-</ol>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="堆：什么是堆？又该怎么理解呢？"><a href="#堆：什么是堆？又该怎么理解呢？" class="headerlink" title="堆：什么是堆？又该怎么理解呢？"></a>堆：什么是堆？又该怎么理解呢？</h4><p><code>堆通常是一个可以被看做一棵树的数组对象。</code>堆总是满足下列性质：</p>
 <ul>
 <li><p>堆中某个节点的值总是不大于或不小于其父节点的值；</p>
 </li>
 <li><p>堆总是一棵完全二叉树。</p>
 </li>
+<li><p>将根节点最大的堆叫做最大堆或大根堆，根节点最小的堆叫做最小堆或小根堆。常见的堆有二叉堆、斐波那契    堆等。</p>
+</li>
 </ul>
-<p>​      将根节点最大的堆叫做最大堆或大根堆，根节点最小的堆叫做最小堆或小根堆。常见的堆有二叉堆、斐波那契    堆等。</p>
-<ol start="2">
+<ul>
 <li><p>堆是在程序运行时，而不是在程序编译时，申请某个大小的内存空间。即动态分配内存，对其访问和对一般内存的访问没有区别。</p>
 </li>
 <li><p>堆是应用程序在运行的时候请求操作系统分配给自己内存，一般是申请/给予的过程。</p>
 </li>
 <li><p>堆是指程序运行时申请的动态内存，而栈只是指一种使用堆的方法(即先进后出)。</p>
 </li>
-</ol>
-<h4 id="栈：什么是栈？又该怎么理解呢？"><a href="#栈：什么是栈？又该怎么理解呢？" class="headerlink" title="栈：什么是栈？又该怎么理解呢？"></a>栈：什么是栈？又该怎么理解呢？</h4><ol>
+</ul>
+<h4 id="栈：什么是栈？又该怎么理解呢？"><a href="#栈：什么是栈？又该怎么理解呢？" class="headerlink" title="栈：什么是栈？又该怎么理解呢？"></a>栈：什么是栈？又该怎么理解呢？</h4><ul>
 <li><p>栈（stack）又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。</p>
 </li>
 <li><p>栈就是一个桶，后放进去的先拿出来，它下面本来有的东西要等它出来之后才能出来（先进后出）</p>
 </li>
 <li><p>栈(Stack)是操作系统在建立某个进程时或者线程（在支持多线程的操作系统中是线程）为这个线程建立的存储区域，该区域具有FIFO的特性，在编译的时候可以指定需要的Stack的大小。</p>
 </li>
-</ol>
+</ul>
 <h4 id="堆栈：什么是堆栈？又该怎么理解呢？"><a href="#堆栈：什么是堆栈？又该怎么理解呢？" class="headerlink" title="堆栈：什么是堆栈？又该怎么理解呢？"></a>堆栈：什么是堆栈？又该怎么理解呢？</h4><p>注意：其实堆栈本身就是栈，只是换了个抽象的名字。</p>
 <p>堆栈的特性： 最后一个放入堆栈中的物体总是被最先拿出来， 这个特性通常称为后进先出(LIFO)队列。 堆栈中定义了一些操作。 两个最重要的是PUSH和POP。 PUSH操作在堆栈的顶部加入一 个元素。POP操作相反， 在堆栈顶部移去一个元素， 并将堆栈的大小减一。</p>
 <h4 id="堆、栈区别总结-："><a href="#堆、栈区别总结-：" class="headerlink" title="堆、栈区别总结 ："></a>堆、栈区别总结 ：</h4><p> 1.堆栈空间分配</p>
@@ -534,11 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">邮件</a>
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color3">邮件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,11 +549,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+                <a href="javascript:void(0)" class="js-tag color3">浪漫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">浪漫</a>
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
             
             <div class="clearfix"></div>
