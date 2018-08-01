@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github-lu.github.io">
-  <title>Archives: 2018 | LuTHEr网络博客</title>
+  <title>异步多线程 | LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LuTHEr网络博客">
-<meta property="og:url" content="https://github-lu.github.io/archives/2018/index.html">
+  <meta name="description" content="今天做的笔记是异步多线程  详细内容参考：https://kb.cnblogs.com/page/116095/  个人笔记 当需要执行I/O操作时，使用异步操作比使用线程+同步I/O操作更合适。I/O操作不仅包括了直接的文件、网络的读写，还包括数据库操作、Web Service、HttpRequest以及.Net Remoting等跨进程的调用。 　　 而线程的适用范围则是那种需要长时间CPU运">
+<meta name="keywords" content=".net">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步多线程">
+<meta property="og:url" content="https://github-lu.github.io/2017/10/04/异步多线程/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
+<meta property="og:description" content="今天做的笔记是异步多线程  详细内容参考：https://kb.cnblogs.com/page/116095/  个人笔记 当需要执行I/O操作时，使用异步操作比使用线程+同步I/O操作更合适。I/O操作不仅包括了直接的文件、网络的读写，还包括数据库操作、Web Service、HttpRequest以及.Net Remoting等跨进程的调用。 　　 而线程的适用范围则是那种需要长时间CPU运">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-01T03:20:44.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LuTHEr网络博客">
+<meta name="twitter:title" content="异步多线程">
+<meta name="twitter:description" content="今天做的笔记是异步多线程  详细内容参考：https://kb.cnblogs.com/page/116095/  个人笔记 当需要执行I/O操作时，使用异步操作比使用线程+同步I/O操作更合适。I/O操作不仅包括了直接的文件、网络的读写，还包括数据库操作、Web Service、HttpRequest以及.Net Remoting等跨进程的调用。 　　 而线程的适用范围则是那种需要长时间CPU运">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
   
@@ -191,36 +196,102 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-异步多线程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/23种设计模式概念/" class="archive-article-date">
-  	<time datetime="2018-07-17T00:07:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/23种设计模式概念/">23种设计模式概念</a>
+    <h1 class="article-title" itemprop="name">
+      异步多线程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/10/04/异步多线程/" class="archive-article-date">
+  	<time datetime="2017-10-04T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天做的笔记是异步多线程</p>
+<blockquote>
+<p>详细内容参考：<a href="https://kb.cnblogs.com/page/116095/" target="_blank" rel="noopener">https://kb.cnblogs.com/page/116095/</a></p>
+</blockquote>
+<h3 id="个人笔记"><a href="#个人笔记" class="headerlink" title="个人笔记"></a>个人笔记</h3><blockquote>
+<p>当需要执行I/O操作时，使用异步操作比使用线程+同步I/O操作更合适。I/O操作不仅包括了直接的文件、网络的读写，还包括数据库操作、Web Service、HttpRequest以及.Net Remoting等跨进程的调用。 　　</p>
+<p>而线程的适用范围则是那种需要长时间CPU运算的场合，例如耗时较长的图形处理和算法执行。但是往往由于使用线程编程的简单和符合习惯，所以很多朋友往往会使用线程来执行耗时较长的I/O操作。这样在只有少数几个并发操作的时候还无伤大雅，如果需要处理大量的并发操作时就不合适了 </p>
+</blockquote>
+<a id="more"></a> 
+<h3 id="多线程和异步操作的异同"><a href="#多线程和异步操作的异同" class="headerlink" title="多线程和异步操作的异同"></a>多线程和异步操作的异同</h3><p>多线程和异步操作两者都可以达到避免调用线程阻塞的目的，从而提高软件的可响应性。甚至有些时候我们就认为多线程和异步操作是等同的概念。但是，多线程和异步操作还是有一些区别的。而这些区别造成了使用多线程和异步操作的时机的区别。 </p>
+<h3 id="异步操作的本质（重点）"><a href="#异步操作的本质（重点）" class="headerlink" title="异步操作的本质（重点）"></a>异步操作的本质（重点）</h3><p>所有的程序最终都会由计算机硬件来执行，所以为了更好的理解异步操作的本质，我们有必要了解一下它的硬件基础。 熟悉电脑硬件的朋友肯定对DMA这个词不陌生，硬盘、光驱的技术规格中都有明确DMA的模式指标，其实网卡、声卡、显卡也是有DMA功能的。DMA就是直接内存访问的意思，也就是说，拥有DMA功能的硬件在和内存进行数据交换的时候可以不消耗CPU资源。只要CPU在发起数据传输时发送一个指令，硬件就开始自己和内存交换数据，在传输完成之后硬件会触发一个中断来通知操作完成。这些无须消耗CPU时间的I/O操作正是异步操作的硬件基础。所以即使在DOS这样的单进程（而且无线程概念）系统中也同样可以发起异步的DMA操作。 </p>
+<h3 id="线程的本质（重点）"><a href="#线程的本质（重点）" class="headerlink" title="线程的本质（重点）"></a>线程的本质（重点）</h3><p>线程不是一个计算机硬件的功能，而是操作系统提供的一种逻辑功能，线程本质上是进程中一段并发运行的代码，所以线程需要操作系统投入CPU资源来运行和调度。 </p>
+<h3 id="抽象示例"><a href="#抽象示例" class="headerlink" title="抽象示例"></a>抽象示例</h3><p>在游戏中有个人物A，现在有任务物品B和任务物品C，分别完成任务B和C，现在问怎么完成两个两个任务？</p>
+<p>平民模式：A跑到B任务地点完成任务B，再跑到C任务地点完成任务C</p>
+<p>异步模式（开挂模式）：A不用跑路了，站在完成任务B和任务C</p>
+<p>多线程模式（开挂模式）：A采用影分身之术分为两个人，人别区完成任务B和任务C</p>
+<h3 id="基于C-语言Async和Await代码实现异步示例"><a href="#基于C-语言Async和Await代码实现异步示例" class="headerlink" title="基于C#语言Async和Await代码实现异步示例"></a>基于C#语言Async和Await代码实现异步示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 主方法</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public async void TaskTest()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	Stopwatch sw = new Stopwatch();</span><br><span class="line">	sw.Start();</span><br><span class="line">	var result =  await Sum2Async();</span><br><span class="line">	Console.WriteLine($&quot;当前返回结果：&#123;result&#125;&quot;);</span><br><span class="line">	sw.Stop();</span><br><span class="line">	TimeSpan ts2 = sw.Elapsed;</span><br><span class="line">	Console.WriteLine($&quot;Stopwatch总共花费：&#123;ts2.TotalMilliseconds&#125;ms.&quot;);</span><br><span class="line">&#125;</span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 获取count1</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">public async Task&lt;int&gt; Count1Async()</span><br><span class="line">&#123;</span><br><span class="line">	await Task.Delay(3000);</span><br><span class="line">	return 1;</span><br><span class="line">&#125;</span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 获取count2</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">public async Task&lt;int&gt; Count2Async()</span><br><span class="line">&#123;</span><br><span class="line">	await Task.Delay(3000);</span><br><span class="line">	return 2;</span><br><span class="line">&#125;</span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 返回count1+count2</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">public async Task&lt;int&gt; Sum2Async()</span><br><span class="line">&#123;</span><br><span class="line">	var task1 = Count1Async();</span><br><span class="line">	var task2 = Count2Async();</span><br><span class="line">	await Task.Delay(3000);</span><br><span class="line">	return await task1 + await task2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当前返回结果：3</span><br><span class="line">Stopwatch总共花费：3052.0493ms.</span><br></pre></td></tr></table></figure>
+<h3 id="异步方法总结："><a href="#异步方法总结：" class="headerlink" title="异步方法总结："></a>异步方法总结：</h3><ul>
+<li>方法签名包括async修饰符，有个修饰符的就能知道这是个异步方法</li>
+<li>异步方法的命名，按照惯例，以“Async”后缀结尾，规范。。。</li>
+<li>返回类型只能是这三种：Task<tresult>,Task或void，规定。。。</tresult></li>
+<li>方法通常至少包括一个await表达式，await标记了一个点，这个点就是直到异步操作完成后异步方法才继续执行。同时，方法是延迟的，控制返回到方法的调用者。（<strong>核心</strong>）</li>
+</ul>
+<h3 id="多线程代码示例"><a href="#多线程代码示例" class="headerlink" title="多线程代码示例"></a>多线程代码示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 安装服务</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;</span><br><span class="line">/// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;</span><br><span class="line">private void BtnInstall_Click(object sender, EventArgs e)</span><br><span class="line">&#123;</span><br><span class="line">	new Thread(new ThreadStart(new Action(() =&gt;</span><br><span class="line">	&#123;</span><br><span class="line">		if (!CheckServerState().IsExite)</span><br><span class="line">		&#123;</span><br><span class="line">			this.InstallService(serviceFilePath);</span><br><span class="line">		&#125;</span><br><span class="line">		MessageBox.Show(&quot;服务已安装&quot;);</span><br><span class="line">	&#125;))).Start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个进程可以创建一个或多个线程以执行与该进程关联的部分程序代码。在C#中，线程是使用Thread类处理的，该类在System.Threading命名空间中。使用Thread类创建线程时，只需要提供线程入口，线程入口告诉程序让这个线程做什么。通过实例化一个Thread类的对象就可以创建一个线程。创建新的Thread对象时，将创建新的托管线程。Thread类接收一个ThreadStart委托或ParameterizedThreadStart委托的构造函数，该委托包装了调用Start方法时由新线程调用的方法 。</p>
+<h3 id="多线程方法笔记"><a href="#多线程方法笔记" class="headerlink" title="多线程方法笔记"></a>多线程方法笔记</h3><ul>
+<li><p>线程也是程序，所以线程需要占用内存，线程越多，占用内存也越多。</p>
+</li>
+<li><p>多线程需要协调和管理，所以需要占用CPU时间以便跟踪线程。</p>
+</li>
+<li><p>线程之间对共享资源的访问会相互影响，必须解决争用共享资源的问题。</p>
+</li>
+<li><p>线程太多会导致控制太复杂，最终可能造成很多程序缺陷。</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfbPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weChatPay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -232,7 +303,7 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -245,413 +316,109 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github-lu.github.io/2017/10/04/异步多线程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/基于Microsoft Exchange Server发送邮件/" class="archive-article-date">
-  	<time datetime="2018-06-28T12:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/03/30/Sql脚本/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Sql脚本
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/基于Microsoft Exchange Server发送邮件/">基于Microsoft Exchange Server发送邮件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/25/SMTP发送邮件/" class="archive-article-date">
-  	<time datetime="2018-06-25T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/25/SMTP发送邮件/">SMTP协议发送邮件</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/12/SqlDbHelper/" class="archive-article-date">
-  	<time datetime="2018-05-12T12:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/12/SqlDbHelper/">SqlDbHelper</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/04/Redis缓存技术（下）/" class="archive-article-date">
-  	<time datetime="2018-04-04T10:34:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/04/Redis缓存技术（下）/">Redis缓存技术（下）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/04/Redis缓存技术（上）/" class="archive-article-date">
-  	<time datetime="2018-04-04T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/04/Redis缓存技术（上）/">Redis缓存技术（上）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/01/程序员的浪漫/" class="archive-article-date">
-  	<time datetime="2018-04-01T10:43:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/01/程序员的浪漫/">程序员的浪漫</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">浪漫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/30/Hexo常用命令/" class="archive-article-date">
-  	<time datetime="2018-03-30T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/30/Hexo常用命令/">Hexo常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/30/Sql脚本/" class="archive-article-date">
-  	<time datetime="2018-03-30T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/30/Sql脚本/">Sql脚本</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+
 
 
           </div>
@@ -674,8 +441,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
