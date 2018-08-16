@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github-lu.github.io">
-  <title>Archives: 2017 | LuTHEr网络博客</title>
+  <title>数据库索引优化 | LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LuTHEr网络博客">
-<meta property="og:url" content="https://github-lu.github.io/archives/2017/index.html">
+  <meta name="description" content="今天做的笔记是基本数据结构知识 数据库索引优化之从入门到放弃。。。 个人笔记 索引是关系型数据库中给数据库表中一列或多列的值排序后的存储结构，SQL的主流索引结构有B+树以及Hash结构，聚集索引以及非聚集索引用的是B+树索引。数据库存储数据的格式为数据页面，每页的大小为8KB，nvarchar(8096)">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库索引优化">
+<meta property="og:url" content="https://github-lu.github.io/2018/08/16/数据库索引优化/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
+<meta property="og:description" content="今天做的笔记是基本数据结构知识 数据库索引优化之从入门到放弃。。。 个人笔记 索引是关系型数据库中给数据库表中一列或多列的值排序后的存储结构，SQL的主流索引结构有B+树以及Hash结构，聚集索引以及非聚集索引用的是B+树索引。数据库存储数据的格式为数据页面，每页的大小为8KB，nvarchar(8096)">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-16T10:56:19.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LuTHEr网络博客">
+<meta name="twitter:title" content="数据库索引优化">
+<meta name="twitter:description" content="今天做的笔记是基本数据结构知识 数据库索引优化之从入门到放弃。。。 个人笔记 索引是关系型数据库中给数据库表中一列或多列的值排序后的存储结构，SQL的主流索引结构有B+树以及Hash结构，聚集索引以及非聚集索引用的是B+树索引。数据库存储数据的格式为数据页面，每页的大小为8KB，nvarchar(8096)">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
   
@@ -191,48 +196,135 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据库索引优化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/04/堆-栈-堆栈-队列/" class="archive-article-date">
-  	<time datetime="2017-08-04T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/04/堆-栈-堆栈-队列/">堆&amp;栈&amp;堆栈&amp;队列</a>
+    <h1 class="article-title" itemprop="name">
+      数据库索引优化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/16/数据库索引优化/" class="archive-article-date">
+  	<time datetime="2018-08-16T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天做的笔记是基本数据结构知识</p>
+<p>数据库索引优化之从入门到放弃。。。</p>
+<h3 id="个人笔记"><a href="#个人笔记" class="headerlink" title="个人笔记"></a>个人笔记</h3><blockquote>
+<p>索引是关系型数据库中给数据库表中一列或多列的值排序后的存储结构，SQL的主流索引结构有B+树以及Hash结构，聚集索引以及非聚集索引用的是B+树索引。数据库存储数据的格式为数据页面，每页的大小为8KB，nvarchar(8096)</p>
+</blockquote>
+<a id="more"></a> 
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>聚集（clustered）索引，也叫聚簇索引。</p>
+<blockquote>
+<p> 定义：数据行的物理顺序与列值（一般是主键的那一列）的逻辑顺序相同，一个表中只能拥有一个聚集索引。</p>
+</blockquote>
+<p>非聚集（unclustered）索引。</p>
+<blockquote>
+<p>定义：数据行的物理顺序与列值（一般是主键的那一列）的逻辑顺序相同，一个表中只能拥有一个聚集索引。</p>
+</blockquote>
+<h3 id="如何去理解？"><a href="#如何去理解？" class="headerlink" title="如何去理解？"></a>如何去理解？</h3><p>现在有一个图书馆，里面放50本书（不要在意一个只有50本书的图书馆）。其中有一本书叫做《Java从入门到放弃》，现在要求进去快速的找到这本书？？？</p>
+<p>A同学：我进去扫一眼就找到了，用了10秒</p>
+<p>B同学：我进去也扫了一眼，但是没发现，又扫了一眼找到的用了15秒</p>
+<blockquote>
+<p>为什么有的每个同学找到的速度不一样，为什么同样的Sql查询的时间每次都不一样？</p>
+<p>因为每个电脑硬件配置不一样，网速以及外界影响会导致查询时间不同</p>
+</blockquote>
+<p>图书馆：我今天把书整理一下吧，他把书从A到Z的顺序排了个顺序</p>
+<p>A同学：我进去还是扫一眼就找到了，用了5秒</p>
+<p>B同学：我进去也扫了一眼也用了5秒</p>
+<blockquote>
+<p>整理了的书肯定直接找J开头的书，所以能快速的找到这本书</p>
+<p>这就是聚集索引，我把数据根据某个字段进行物理的排序，我（服务器）找数据会提高速度</p>
+</blockquote>
+<p>图书馆：今天进了100万本书</p>
+<p>A同学：我进去问了一下图书管理员，他帮我查了一下书在H货架放着，我去一下找到了花了2秒</p>
+<p>B同学：我进去找J开头书籍，可是J开头的书太多了啊，我花了1分钟</p>
+<blockquote>
+<p>A同学典型的非聚集索引查找方法，因为他去查找索引页（图书管理员）然后再去找书的</p>
+<p>B同学是聚集索引查找方法，因为他还是根据物理排序的J去慢慢找的</p>
+</blockquote>
+<p>通过这个故事，应该对聚集索引和非聚集索引有个大概的认识了</p>
+<blockquote>
+<p>8月10号我和公司的DBA交流了一下：</p>
+<p>索引这个东西不是加就好，跟电脑配置，网速都有关系。有时候你加索引还没有不加索引的查询速度快，所以索引适合在具有大数据量的情况下去进行优化。</p>
+<p>主键是GUID建立聚集索引没有任何意义，对资源的一种浪费。建议把聚集索引建立在int,datetime型上</p>
+</blockquote>
+<h3 id="主键是什么？"><a href="#主键是什么？" class="headerlink" title="主键是什么？"></a>主键是什么？</h3><p>后来自己本地练习了一下。</p>
+<p>我创建表的时候，设置一个主键，数据库会自动的给主键建立聚集索引。</p>
+<p>然后我把聚集索引删除了，发现表中的主键也消失了。。。</p>
+<p>我开始上网查资料，看博客</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/lj820403/p/7246657.html" target="_blank" rel="noopener">https://www.cnblogs.com/lj820403/p/7246657.html</a></p>
+</blockquote>
+<p>主键寄宿于索引，主键的特性是唯一性约束。</p>
+<h3 id="索引的重点笔记"><a href="#索引的重点笔记" class="headerlink" title="索引的重点笔记"></a>索引的重点笔记</h3><ul>
+<li>非聚集索引的建立会影响新增修改等操作的性能，所以并非非聚集索引越多越好</li>
+<li>聚集索引只能建立一个，但是可以建立在多个字段上</li>
+<li>非聚集索引可以建立多个，也可以建立多个字段</li>
+<li>一个表索引最多不要超过5个</li>
+<li>SQL的优化，使用like，is null,not null,&lt;,&gt;等可能会造成表放弃索引使用全表搜索（索引报废）</li>
+<li>GUID不建议做聚集索引，没有意义。聚集索引一般做在int,bingint,datetime上</li>
+<li>非聚集索引适合建立在where条件经常查询的字段上</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfbPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weChatPay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.net</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -245,17 +337,105 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github-lu.github.io/2018/08/16/数据库索引优化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/07/17/23种设计模式概念/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">23种设计模式概念</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
 
 
           </div>
@@ -278,8 +458,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
