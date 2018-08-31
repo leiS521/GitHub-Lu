@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github-lu.github.io">
-  <title>Archives: 2018 | LuTHEr网络博客</title>
+  <title>数据库执行计划 | LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LuTHEr网络博客">
-<meta property="og:url" content="https://github-lu.github.io/archives/2018/index.html">
+  <meta name="description" content="数据库的执行计划通俗点说就是，数据库服务器在执行sql语句的时候，会准备几套方案，最后选择消耗资源最小的那个方案。就是执行计划。  个人笔记 比如执行一条sql语句，但是server并没有告诉服务器如何去做。服务器在收到sql语句后会先检查语法错误，没有问题才会解析执行。在这个过程中，他会考虑是执行整张表，还是根据索引呢，服务器会比较所有可能的方法所好的资源，最终sql语句被物理性执行的计划叫做">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库执行计划">
+<meta property="og:url" content="https://github-lu.github.io/2018/08/19/数据库执行计划/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
+<meta property="og:description" content="数据库的执行计划通俗点说就是，数据库服务器在执行sql语句的时候，会准备几套方案，最后选择消耗资源最小的那个方案。就是执行计划。  个人笔记 比如执行一条sql语句，但是server并没有告诉服务器如何去做。服务器在收到sql语句后会先检查语法错误，没有问题才会解析执行。在这个过程中，他会考虑是执行整张表，还是根据索引呢，服务器会比较所有可能的方法所好的资源，最终sql语句被物理性执行的计划叫做">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://tamron.club/img/执行计划.png">
+<meta property="og:updated_time" content="2018-08-31T01:43:48.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LuTHEr网络博客">
+<meta name="twitter:title" content="数据库执行计划">
+<meta name="twitter:description" content="数据库的执行计划通俗点说就是，数据库服务器在执行sql语句的时候，会准备几套方案，最后选择消耗资源最小的那个方案。就是执行计划。  个人笔记 比如执行一条sql语句，但是server并没有告诉服务器如何去做。服务器在收到sql语句后会先检查语法错误，没有问题才会解析执行。在这个过程中，他会考虑是执行整张表，还是根据索引呢，服务器会比较所有可能的方法所好的资源，最终sql语句被物理性执行的计划叫做">
+<meta name="twitter:image" content="http://tamron.club/img/执行计划.png">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
   
@@ -191,36 +198,118 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-数据库执行计划" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      数据库执行计划
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/19/数据库执行计划/" class="archive-article-date">
+
+        
+        <a href="/2018/08/19/数据库执行计划/" class="archive-article-date">
   	<time datetime="2018-08-19T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/19/数据库执行计划/">数据库执行计划</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>数据库的执行计划通俗点说就是，数据库服务器在执行sql语句的时候，会准备几套方案，最后选择消耗资源最小的那个方案。就是执行计划。</p>
+</blockquote>
+<h3 id="个人笔记"><a href="#个人笔记" class="headerlink" title="个人笔记"></a>个人笔记</h3><blockquote>
+<p>比如执行一条sql语句，但是server并没有告诉服务器如何去做。服务器在收到sql语句后会先检查语法错误，没有问题才会解析执行。在这个过程中，他会考虑是执行整张表，还是根据索引呢，服务器会比较所有可能的方法所好的资源，最终sql语句被物理性执行的计划叫做执行计划，</p>
+</blockquote>
+<a id="more"></a> 
+<h3 id="执行计划在哪里"><a href="#执行计划在哪里" class="headerlink" title="执行计划在哪里"></a>执行计划在哪里</h3><p><img src="http://tamron.club/img/执行计划.png" alt=""></p>
+<h3 id="执行计划有哪些"><a href="#执行计划有哪些" class="headerlink" title="执行计划有哪些"></a>执行计划有哪些</h3><ul>
+<li><p>【Table Scan】：遍历整个表，查找所有匹配的记录行。这个操作将会一行一行的检查，当然，效率也是最差的。</p>
+<blockquote>
+<ul>
+<li>全表扫描，大数据扫描必定性能差，查找必定性能高</li>
+</ul>
+</blockquote>
+</li>
+<li><p>【Index Scan】：根据索引，从表中过滤出来一部分记录，再查找所有匹配的记录行，显然比第一种方式的查找范围要小，因此比【Table Scan】要快。</p>
+<blockquote>
+<ul>
+<li>引起全表扫描并不是like，而是%</li>
+<li>当前匹配的查询条件可以使用非聚集索引，可能是有&lt;,&gt;,%等等放弃了使用非聚集索引查找</li>
+</ul>
+</blockquote>
+</li>
+<li><p>【Index Seek】：根据索引，定位（获取）记录的存放位置，然后取得记录，因此，比起前二种方式会更快。</p>
+<blockquote>
+<ul>
+<li>非聚集索引查找索引页然后再获取数据，这里有个坑是你Select 查找的字段必须是聚集索引，或者是非聚集索引，如果查找了*,或者其他字段，那将是全表扫描</li>
+</ul>
+</blockquote>
+</li>
+<li><p>【Clustered Index Scan】：和【Table Scan】一样。注意：不要以为这里有个Index，就认为不一样了。 其实它的意思是说：按聚集索引来逐行扫描每一行记录，因为记录就是按聚集索引来顺序存放的。 而【Table Scan】只是说：要扫描的表没有聚集索引而已，因此这二个操作本质上也是一样的。</p>
+<blockquote>
+<ul>
+<li>意思是表里面有聚集索引，但是没有利用聚集索引去查找</li>
+</ul>
+</blockquote>
+</li>
+<li><p>【Clustered Index Seek】：直接根据聚集索引获取记录，最快！</p>
+<blockquote>
+<ul>
+<li>完美，我们永远只会记住第一</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="如何去优化？"><a href="#如何去优化？" class="headerlink" title="如何去优化？"></a>如何去优化？</h3><p>当发现某个查询比较慢时，可以首先检查哪些操作的成本比较高，再看看那些操作在查找记录时， 是不是【Table Scan】或者【Clustered Index Scan】，如果确实和这二种操作类型有关，则要考虑增加索引来解决了。关于索引的记录请<a href="http://tamron.club/2018/08/16/数据库索引优化/" target="_blank" rel="noopener">查看这里</a></p>
+<p>这里推荐一篇<a href="https://blog.csdn.net/lvyanqin2013/article/details/78721239" target="_blank" rel="noopener">博客</a>，这篇信息讲的非常详细，但是今天这篇文章记录的是SqlServer中的执行计划</p>
+<p>目前我的数据库安装版本是SqlServer2017服务和SSMS客户端</p>
+<p>这里只是做个笔记，上次本地数据库导入百万条数据等待时间太长放弃了</p>
+<blockquote>
+<p>最后引用MSDN原话：不要总是将索引的使用等同于良好的性能，或者将良好的性能等同于索引的高效使用。如果只要使用索引就能获得最佳性能，那查询优化器的工作就简单了。但事实上，不正确的索引选择并不能获得最佳性能。因此，查询优化器的任务是只在索引或索引组合能提高性能时才选择它，而在索引检索有碍性能时则避免使用它。 </p>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfbPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weChatPay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -232,7 +321,7 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -245,462 +334,105 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github-lu.github.io/2018/08/19/数据库执行计划/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/16/数据库索引优化/" class="archive-article-date">
-  	<time datetime="2018-08-16T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/16/数据库索引优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库索引优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/16/数据库索引优化/">数据库索引优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/23种设计模式概念/" class="archive-article-date">
-  	<time datetime="2018-07-17T00:07:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/23种设计模式概念/">23种设计模式概念</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.net</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/基于Microsoft Exchange Server发送邮件/" class="archive-article-date">
-  	<time datetime="2018-06-28T12:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/基于Microsoft Exchange Server发送邮件/">基于Microsoft Exchange Server发送邮件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/25/SMTP发送邮件/" class="archive-article-date">
-  	<time datetime="2018-06-25T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/25/SMTP发送邮件/">SMTP协议发送邮件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/12/SqlDbHelper/" class="archive-article-date">
-  	<time datetime="2018-05-12T12:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/12/SqlDbHelper/">SqlDbHelper</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/04/Redis缓存技术（下）/" class="archive-article-date">
-  	<time datetime="2018-04-04T10:34:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/04/Redis缓存技术（下）/">Redis缓存技术（下）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/04/Redis缓存技术（上）/" class="archive-article-date">
-  	<time datetime="2018-04-04T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/04/Redis缓存技术（上）/">Redis缓存技术（上）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/01/程序员的浪漫/" class="archive-article-date">
-  	<time datetime="2018-04-01T10:43:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/01/程序员的浪漫/">程序员的浪漫</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">浪漫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/30/Hexo常用命令/" class="archive-article-date">
-  	<time datetime="2018-03-30T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/30/Hexo常用命令/">Hexo常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
   
+
+  
+
+  
+
 
 
           </div>
@@ -723,8 +455,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
