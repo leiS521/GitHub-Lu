@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://github-lu.github.io">
+  <link rel="dns-prefetch" href="http://tamron.club">
   <title>数据库执行计划 | LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数据库的执行计划通俗点说就是，数据库服务器在执行sql语句的时候，会准备几套方案，最后选择消耗资源最小的那个方案。就是执行计划。  个人笔记 比如执行一条sql语句，但是server并没有告诉服务器如何去做。服务器在收到sql语句后会先检查语法错误，没有问题才会解析执行。在这个过程中，他会考虑是执行整张表，还是根据索引呢，服务器会比较所有可能的方法所好的资源，最终sql语句被物理性执行的计划叫做">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库执行计划">
-<meta property="og:url" content="https://github-lu.github.io/2018/08/19/数据库执行计划/index.html">
+<meta property="og:url" content="http://tamron.club/2018/08/19/数据库执行计划/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
 <meta property="og:description" content="数据库的执行计划通俗点说就是，数据库服务器在执行sql语句的时候，会准备几套方案，最后选择消耗资源最小的那个方案。就是执行计划。  个人笔记 比如执行一条sql语句，但是server并没有告诉服务器如何去做。服务器在收到sql语句后会先检查语法错误，没有问题才会解析执行。在这个过程中，他会考虑是执行整张表，还是根据索引呢，服务器会比较所有可能的方法所好的资源，最终sql语句被物理性执行的计划叫做">
 <meta property="og:locale" content="default">
@@ -252,7 +252,7 @@ var _hmt = _hmt || [];
 </blockquote>
 </li>
 </ul>
-<h3 id="如何去优化？"><a href="#如何去优化？" class="headerlink" title="如何去优化？"></a>如何去优化？</h3><p>当发现某个查询比较慢时，可以首先检查哪些操作的成本比较高，再看看那些操作在查找记录时， 是不是【Table Scan】或者【Clustered Index Scan】，如果确实和这二种操作类型有关，则要考虑增加索引来解决了。关于索引的记录请<a href="http://tamron.club/2018/08/16/数据库索引优化/" target="_blank" rel="noopener">查看这里</a></p>
+<h3 id="如何去优化？"><a href="#如何去优化？" class="headerlink" title="如何去优化？"></a>如何去优化？</h3><p>当发现某个查询比较慢时，可以首先检查哪些操作的成本比较高，再看看那些操作在查找记录时， 是不是【Table Scan】或者【Clustered Index Scan】，如果确实和这二种操作类型有关，则要考虑增加索引来解决了。关于索引的记录请<a href="http://tamron.club/2018/08/16/数据库索引优化/">查看这里</a></p>
 <p>这里推荐一篇<a href="https://blog.csdn.net/lvyanqin2013/article/details/78721239" target="_blank" rel="noopener">博客</a>，这篇信息讲的非常详细，但是今天这篇文章记录的是SqlServer中的执行计划</p>
 <p>目前我的数据库安装版本是SqlServer2017服务和SSMS客户端</p>
 <p>这里只是做个笔记，上次本地数据库导入百万条数据等待时间太长放弃了</p>
@@ -370,7 +370,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github-lu.github.io/2018/08/19/数据库执行计划/" alt="微信分享二维码">
+      <img src="http://qr.liantu.com/api.php?text=http://tamron.club/2018/08/19/数据库执行计划/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -425,7 +425,7 @@ var _hmt = _hmt || [];
   
     
     <!-- Gitment评论插件通用代码 -->
-<div id="git"></div>
+<div id="git" style="padding-right: 4.6923%;padding-left: 4.6923%;"></div>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
@@ -445,7 +445,23 @@ gitment.render('git')
   
 
   
-  
+  <!-- Gitment评论插件通用代码 -->
+<div id="git" style="padding-right: 4.6923%;padding-left: 4.6923%;"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '数据库执行计划',
+  owner: "GitHub-Lu",//github用户名
+  repo: "GitHub-Lu",//用户存储评论的github项目名称
+  oauth: {
+    client_id: "db576250d19d9949d949",//注册OAuth Application时生产的ClinetID
+    client_secret:"2209282d4f0fb7dc50c3a2ec37d75464c9ed0a43",//注册OAuth Application时生成的Client Secret
+  },
+})
+gitment.render('git')
+</script>
+<!-- Gitment代码结束 -->
   
 
 
@@ -540,11 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
               <li class="article-tag-list-item">
