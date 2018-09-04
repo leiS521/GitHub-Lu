@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tamron.club">
-  <title>堆&amp;栈&amp;堆栈&amp;队列 | LuTHEr网络博客</title>
+  <title>数据结构的魅力 | LuTHEr网络博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天做的笔记是基本数据结构知识 个人笔记 大学里面那本严蔚敏的数据结构不厚，内容丰富，但是复杂问题的讲解方面篇幅这样就少了，比较难理解，c也不是很擅长，但是基本的思路还是有的。 简单的链表，数组，堆栈，队列，图，几个排序算法。">
 <meta name="keywords" content=".net">
 <meta property="og:type" content="article">
-<meta property="og:title" content="堆&amp;栈&amp;堆栈&amp;队列">
-<meta property="og:url" content="http://tamron.club/2017/08/04/堆-栈-堆栈-队列/index.html">
+<meta property="og:title" content="数据结构的魅力">
+<meta property="og:url" content="http://tamron.club/2017/08/04/数据结构/index.html">
 <meta property="og:site_name" content="LuTHEr网络博客">
 <meta property="og:description" content="今天做的笔记是基本数据结构知识 个人笔记 大学里面那本严蔚敏的数据结构不厚，内容丰富，但是复杂问题的讲解方面篇幅这样就少了，比较难理解，c也不是很擅长，但是基本的思路还是有的。 简单的链表，数组，堆栈，队列，图，几个排序算法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-01T05:52:57.820Z">
+<meta property="og:image" content="http://tamron.club/img/数据结构的选择.png">
+<meta property="og:updated_time" content="2018-09-04T09:26:10.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="堆&amp;栈&amp;堆栈&amp;队列">
+<meta name="twitter:title" content="数据结构的魅力">
 <meta name="twitter:description" content="今天做的笔记是基本数据结构知识 个人笔记 大学里面那本严蔚敏的数据结构不厚，内容丰富，但是复杂问题的讲解方面篇幅这样就少了，比较难理解，c也不是很擅长，但是基本的思路还是有的。 简单的链表，数组，堆栈，队列，图，几个排序算法。">
+<meta name="twitter:image" content="http://tamron.club/img/数据结构的选择.png">
   
     <link rel="alternative" href="/atom.xml" title="LuTHEr网络博客" type="application/atom+xml">
   
@@ -76,6 +78,8 @@ var _hmt = _hmt || [];
 		<hgroup>
 		  <h1 class="header-author"><a href="/">LuTHEr</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">你必须非常努力才能看起来毫不费力</p>
 		
 
 		<nav class="header-menu">
@@ -135,6 +139,8 @@ var _hmt = _hmt || [];
 			  <h1 class="header-author js-header-author">LuTHEr</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你必须非常努力才能看起来毫不费力<i class="icon icon-quo-right"></i></p>
+			
 			
 			
 				
@@ -184,19 +190,19 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-堆-栈-堆栈-队列" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据结构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      堆&amp;栈&amp;堆栈&amp;队列
+      数据结构的魅力
     </h1>
   
 
         
-        <a href="/2017/08/04/堆-栈-堆栈-队列/" class="archive-article-date">
+        <a href="/2017/08/04/数据结构/" class="archive-article-date">
   	<time datetime="2017-08-04T03:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
 </a>
         
@@ -259,6 +265,11 @@ var _hmt = _hmt || [];
 <h4 id="堆、栈、队列之间的区别是？"><a href="#堆、栈、队列之间的区别是？" class="headerlink" title="堆、栈、队列之间的区别是？"></a>堆、栈、队列之间的区别是？</h4><p>①堆是在程序运行时，而不是在程序编译时，申请某个大小的内存空间。即动态分配内存，对其访问和对一般内存的访问没有区别。</p>
 <p>②栈就是一个桶，后放进去的先拿出来，它下面本来有的东西要等它出来之后才能出来。（后进先出）</p>
 <p>③队列只能在队头做删除操作,在队尾做插入操作.而栈只能在栈顶做插入和删除操作。（先进先出）</p>
+<h3 id="代码之集合-选择正确的集合"><a href="#代码之集合-选择正确的集合" class="headerlink" title="代码之集合~选择正确的集合"></a>代码之集合~选择正确的集合</h3><p>要选用正确的集合，首先需要了解一些数据结构的知识。所谓数据结构，就是相互之间存在一种或多种特定关系的数据元素的集合。</p>
+<p><img src="http://tamron.club/img/数据结构的选择.png" alt=""></p>
+<blockquote>
+<p>关于集合的选择详见《[编写高质量代码改善C#程序的157个建议].陆敏技》书中58页</p>
+</blockquote>
 
       
 
@@ -370,7 +381,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://qr.liantu.com/api.php?text=http://tamron.club/2017/08/04/堆-栈-堆栈-队列/" alt="微信分享二维码">
+      <img src="http://qr.liantu.com/api.php?text=http://tamron.club/2017/08/04/数据结构/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -430,7 +441,7 @@ var _hmt = _hmt || [];
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: '堆&amp;栈&amp;堆栈&amp;队列',
+  id: '数据结构的魅力',
   owner: "GitHub-Lu",//github用户名
   repo: "GitHub-Lu",//用户存储评论的github项目名称
   oauth: {
@@ -451,7 +462,7 @@ gitment.render('git')
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: '堆&amp;栈&amp;堆栈&amp;队列',
+  id: '数据结构的魅力',
   owner: "GitHub-Lu",//github用户名
   repo: "GitHub-Lu",//用户存储评论的github项目名称
   oauth: {
@@ -560,11 +571,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.net</a>
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color5">.net</a>
               </li>
              
               <li class="article-tag-list-item">
