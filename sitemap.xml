@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tamron.club/2018/04/04/Redis%E7%BC%93%E5%AD%98%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8A%EF%BC%89/</loc>
+    
+    <lastmod>2018-09-04T10:28:23.444Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tamron.club/2017/08/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     
     <lastmod>2018-09-04T09:26:10.042Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://tamron.club/2018/06/25/SMTP%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</loc>
     
     <lastmod>2018-07-23T01:12:19.441Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tamron.club/2018/04/04/Redis%E7%BC%93%E5%AD%98%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8A%EF%BC%89/</loc>
-    
-    <lastmod>2018-07-23T01:10:11.078Z</lastmod>
     
   </url>
   
